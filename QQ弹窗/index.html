@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QQ弹窗</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <iframe src="http://www.qq.com" frameborder="0" width="100%" height="100%"></iframe>
+    <div id="myAD" class="ad">
+        <img id="myClose" class="btn" src="image/close.png" alt="">
+        <a href="">
+            <img class="bg" src="image/bg.png" alt="">
+        </a>
+    </div>
+    <script>
+        var myAD = document.getElementById('myAD');
+        var myClose = document.getElementById('myClose');
+        var adHeight = 0;
+        myClose.onclick = function(){
+            // 关闭弹窗
+            var close = setInterval(adClose,20);
+        }
+       
+        function adShowFunc(){
+            if( adHeight < 200){
+                adHeight += 2;
+                myAD.style.height = adHeight + "px";  //字符串
+            }else{
+                myAD.style.height = "200px";
+                adHeight = 200;
+                clearInterval(show);
+            }  
+        }
+
+        // 关闭弹窗
+        function adClose(){
+            if(adHeight <= 0){
+                myAD.style.display = "none";
+            }else{
+                adHeight -= 2;
+                myAD.style.height = adHeight + "px";
+            }
+        }
+        //页面加载完成之后，显示弹窗
+        window.onload = function(){
+            // 展示弹窗
+            //没有写 var的原因是什么？？？？？
+            show = setInterval(adShowFunc,20);
+        }
+    </script>
+</body>
+</html>
