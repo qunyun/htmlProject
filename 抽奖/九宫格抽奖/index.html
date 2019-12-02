@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九宫格抽奖</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <td class="select">1<img src="" alt=""></td>
+            <td>2<img src="" alt=""></td>
+            <td>3<img src="" alt=""></td>
+        </tr>
+        <tr>
+            <td>4<img src="" alt=""></td>
+            <td id="start" class="start">开始</td>
+            <td>6<img src="" alt=""></td>
+        </tr>
+        <tr>
+            <td>7<img src="" alt=""></td>
+            <td>8<img src="" alt=""></td>
+            <td>9<img src="" alt=""></td>
+        </tr>
+    </table>
+    <script>
+        var tdList = document.getElementById('table').getElementsByTagName('td');
+        
+        var tdID = 0;
+        var tdArr = [0,1,2,5,8,7,6,3];
+        var runNum;
+        function playFunc(){
+            //第一行 0-3
+            //取消上次的选中
+            tdList[tdArr[tdID]].className = '';
+            tdID = tdID+1 == tdArr.length ? 0 : tdID + 1 ;
+            //当前元素加上选中
+            tdList[tdArr[tdID]].className = 'select';
+
+            runNum++;
+            if(runNum >= maxNum){
+                clearInterval(run);
+            }
+        }
+
+        var start = document.getElementById('start');
+        start.onclick = function(){
+            //跑的圈数
+            runNum = 0;
+            maxNum = 8 * 3 +(parseInt(Math.random()* 8));
+            run=setInterval(playFunc,200);
+        }
+    </script>
+</body>
+</html>
