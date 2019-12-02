@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自动切换焦点图</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="clearfixed">
+        <div id="left">
+            <img src="image/banner1.jpg" alt="">
+            <img src="image/banner2.jpg" alt="">
+            <img src="image/banner3.jpg" alt="">
+            <img src="image/banner4.jpg" alt="">
+        </div> 
+        <img id="pointer" src="image/banner5.jpg" alt="">
+        <div id="right">
+            <img src="image/banner1.jpg" alt="" class="show">
+            <img src="image/banner2.jpg" alt="">
+            <img src="image/banner3.jpg" alt="">
+            <img src="image/banner4.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var leftImgArr = document.getElementById('left').getElementsByTagName("img");
+        var rightImgArr = document.getElementById('right').getElementsByTagName("img");
+        var pointer = document.getElementById('pointer');
+        var topArr = [0,82,164];
+        for(var i=0;i < leftImgArr.lenght; i++){
+            leftImgArr[i].onmouseover = mouseOver;
+            leftImgArr[i].index = i;
+        }
+        function mouseOver(){
+            //无法打印 index 的值
+            console.log(this.index);
+        }
+        // function mouseOver(){
+        //     for(var i=0; i<rightImgArr.length;i++){
+        //         if(this.index == i){
+        //             //右侧图片显示
+        //             rightImgArr[i].className = "show";
+        //             top = 0;
+        //             nowTop = pointer.offsetTop;
+        //             if(moveLoop == null){
+        //                 moveLoop = setInterval(moveTo,100);
+        //             }
+        //         }else{
+        //             rightImgArr[i].className = '';
+        //         }
+        //     }
+        // }
+
+        // var moveLoop = null;
+        // //从 y1 -> y2
+        // var top = 164;
+        // var nowTop = 0;
+        // var speed = 4;
+        // function moveTo(){
+        //     //从上往下
+        //     if( nowTop < top){
+        //         nowTop += speed;
+        //         if(nowTop >= top){
+        //             //结束
+        //             nowTop = top;
+        //             clearInterval(moveLoop);
+        //             moveLoop = null;
+        //         }
+        //     }
+
+        //     //从下往上
+        //     if( nowTop > top){
+        //         nowTop -= speed;
+        //         if(nowTop <= top){
+        //             nowTop = top;
+        //             clearInterval(moveLoop);
+        //             moveLoop = null;
+        //         }
+        //     }
+        //     if(nowTop == top){
+        //         clearInterval(moveLoop);
+        //         moveLoop = null;
+        //     }
+        //     pointer.style.top = newTop + "px";
+        // }
+    </script>
+</body>
+</html>

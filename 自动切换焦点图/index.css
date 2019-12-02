@@ -1,0 +1,36 @@
+.clearfixed{
+    display:table;
+    content:"";
+    clear: both;
+}
+#left{
+    margin-left:10px;
+    width:200px;
+    float:left;
+}
+#left > img{
+    width:200px;
+}
+#right{
+    margin-left:10px;
+    width:830px;
+    float:left;
+}
+#right > img{
+    display:none;
+    width:830px;
+}
+
+.box{
+    position: relative;
+}
+#pointer{
+    margin:5px 0 0 10px;
+    position: absolute;
+    top: 0;
+    left:0;
+    width:210px;
+}
+#right .show{
+    display: inline-block;
+}
