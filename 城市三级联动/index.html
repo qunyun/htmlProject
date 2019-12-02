@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>城市三级联动</title>
+    <script src="city.data.js"></script>
+</head>
+<body>
+    <!-- 动态的添加select选项 -->
+    <select name="" id="province">
+    </select>
+    <select name="" id="city">
+    </select>
+    <select name="" id="district">
+    </select>
+
+    <script>
+        var province = document.getElementById("province");
+        var city = document.getElementById("city");
+        var district = document.getElementById("district");
+
+        var provinceList = cityData; //获取城市的数据值
+
+        for(var i=0; i < provinceList.length; i++){
+            province.options.add(new Option(provinceList[i].text,provinceList[i].value))
+        }
+
+        //监听选中的操作
+        province.onchange = changProvince;
+        city.onchange = changeCity;
+        changProvince();
+        changeCity();
+
+        function changProvince(){
+            //清空数据
+            city.options.length = 0;
+            var cityArr = provinceList[province.selectedIndex].children;
+            for(var i = 0; i< cityArr.length; i++){
+                var option= new Option(cityArr[i].text,cityArr[i].value);
+                city.options.add(option);
+            }
+        }
+
+        function changeCity(){
+            //清空数据
+            district.options.length = 0;
+            var districtArr = provinceList[province.selectedIndex].children[city.selectedIndex].children;
+            for(var i = 0; i< districtArr.length; i++){
+                var option= new Option(districtArr[i].text,districtArr[i].value);
+                district.options.add(option);
+            }
+        }
+
+        // 动态的创建 city select -> option
+
+        //创建元素,方法一：
+        // var option = document.createElement("option");
+        // option.text = "上海";
+        // option.value = "sh";
+        // province.appendChild(option);
+
+        // 方法二：
+        // var option = new Option("上海", "sh");
+        // province.options.add(option);
+    </script>
+</body>
+</html>
