@@ -25,11 +25,12 @@
     position: relative;
 }
 #pointer{
-    margin:5px 0 0 10px;
+    margin:3px 0 0 19px;
     position: absolute;
     top: 0;
     left:0;
     width:210px;
+    height:75px;
 }
 #right .show{
     display: inline-block;

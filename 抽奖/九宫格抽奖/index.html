@@ -10,19 +10,19 @@
 <body>
     <table id="table">
         <tr>
-            <td class="select">1<img src="" alt=""></td>
-            <td>2<img src="" alt=""></td>
-            <td>3<img src="" alt=""></td>
+            <td class="select"><img src="image/1.jpg" alt=""></td>
+            <td><img src="image/2.jpg" alt=""></td>
+            <td><img src="image/3.jpg" alt=""></td>
         </tr>
         <tr>
-            <td>4<img src="" alt=""></td>
+            <td><img src="image/4.jpg" alt=""></td>
             <td id="start" class="start">开始</td>
-            <td>6<img src="" alt=""></td>
+            <td><img src="image/5.jpg" alt=""></td>
         </tr>
         <tr>
-            <td>7<img src="" alt=""></td>
-            <td>8<img src="" alt=""></td>
-            <td>9<img src="" alt=""></td>
+            <td><img src="image/6.jpg" alt=""></td>
+            <td><img src="image/7.jpg" alt=""></td>
+            <td><img src="image/8.jpg" alt=""></td>
         </tr>
     </table>
     <script>
@@ -30,8 +30,17 @@
         
         var tdID = 0;
         var tdArr = [0,1,2,5,8,7,6,3];
-        var runNum;
+        var runNum = 0; //跑的初始圈数
+        var totalRunNum = 3; //跑的总圈数
+        var index; //获取奖品的下标
+        var speed = 500; //跑的速度，值越大，速度越慢
+        var minSpeed = 100; //最快速度
+        var isClick = true; //是否点击
+
         function playFunc(){
+            if(runNum == 0){
+                // run = setInterval(,speed)
+            }
             //第一行 0-3
             //取消上次的选中
             tdList[tdArr[tdID]].className = '';
@@ -42,15 +51,18 @@
             runNum++;
             if(runNum >= maxNum){
                 clearInterval(run);
+                isClick = true;
             }
         }
 
         var start = document.getElementById('start');
         start.onclick = function(){
-            //跑的圈数
-            runNum = 0;
-            maxNum = 8 * 3 +(parseInt(Math.random()* 8));
-            run=setInterval(playFunc,200);
+            if(isClick){
+                index = parseInt(Math.random()*8); //获取转到奖品的随机下标
+                runNum = 0; //跑的初始圈数
+                isClick = false;
+                playFunc(); 
+            }
         }
     </script>
 </body>

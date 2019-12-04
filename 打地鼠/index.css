@@ -1,0 +1,37 @@
+#scene{
+    width: 750px;
+    height: 550px;
+    background:url("image/bg.png");
+    position:relative;
+    user-select:none;
+}
+#hammer{
+    margin-top:-40px;
+    margin-left: -40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: none;
+    user-select:none; /* 用户无法选中图片的效果 */
+}
+div[id^="hollow"]{
+    position: absolute;
+    width:102px;
+    height:103px;
+    overflow: hidden;
+}
+#hollow1{top:150px;left:140px;}
+#hollow2{top:150px;left:330px;}
+#hollow3{top:150px;left:528px;}
+#hollow4{top:240px;left:117px;}
+#hollow5{top:240px;left:334px;}
+#hollow6{top:240px;left:532px;}
+#hollow7{top:336px;left:109px;}
+#hollow8{top:343px;left:334px;}
+#hollow9{top:346px;left:551px;}
+
+div[id^="hollow"]>img{
+    position: absolute;
+    top:103px;
+    left:0;
+}

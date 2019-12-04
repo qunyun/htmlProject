@@ -25,6 +25,7 @@
         }
        
         function adShowFunc(){
+            myAD.style.display = "inline-block";
             if( adHeight < 200){
                 adHeight += 2;
                 myAD.style.height = adHeight + "px";  //字符串
@@ -45,6 +46,7 @@
             }
         }
         //页面加载完成之后，显示弹窗
+        myAD.style.display = "none";
         window.onload = function(){
             // 展示弹窗
             //没有写 var的原因是什么？？？？？

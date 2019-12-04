@@ -1,11 +1,21 @@
+table{
+    display:inline-block;
+}
+tr,td{
+    margin:0;
+    padding:0;
+}
 tr{
-    background-color: #666;
-    font-size: 50px;
+    font-size: 20px;
     text-align: center;
 }
-td{
-    width:200px;
-    height:200px;
+/* td{
+    width:160px;
+    height:220px;
+} */
+td > img{
+    width:130px;
+    height:190px;
 }
 .select{
     background-color:#f60;
