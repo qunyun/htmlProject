@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>十进制数转二进制</title>
+</head>
+<body>
+    <script>
+        //系统方法：n.toString("2");
+        // 自定义方法：
+        function fun(num){
+            var arr = [];
+            // 1.对数字除二取余
+            while(num != 0){
+                arr.push(num % 2);   
+                num = parseInt(num / 2);
+            }
+
+            // 2.实现数组的倒序输出
+            //方法一：
+            // arr.reverse();
+            // var s = arr.join('');
+
+            //方法二：
+            var len = arr.length;
+            var s = '';
+            for(i=0;i<len;i++){
+                s += arr[len - i - 1]
+            }
+            console.log(s);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断一个正整数是不是质数</title>
+</head>
+<body>
+    <script>
+        // 注意：
+        // 1.写代码的时候注意边界值的情况；
+        // 2.优化：
+        //     1) 如果是偶数的话，必然不是质数
+        //     2) 如果是奇数，必然不能被偶数整除
+        function fun(num){  
+            // 1.写代码的时候注意边界值的情况
+            if(num < 0 && num % 2 == 0){
+                return false;
+            }
+            var n = 3;
+            while( n<num ){
+                if(num % n == 0){
+                    return false;
+                }
+                n += 2;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
