@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义求和函数</title>
+</head>
+<body>
+    <script>
+        /*要求：
+            1.函数传入的参数不确定
+            2.参数可以是任意的数据类型
+            3.实现下面的结果
+                sum(1,2,3) = 6
+                sum(1,null,-3) = -2
+                sum('1.0',false,true,1,"A","B") = 2
+                sum(0.1,0.2) = 0.3
+        */
+
+        function fun(){
+            var sum = 0;
+            for(var i=0; i< arguments.length; i++){
+                sum += arguments[i];
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>

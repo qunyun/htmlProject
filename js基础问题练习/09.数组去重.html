@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+   
+    <script>
+         /*
+         要求：
+            1.给Array本地对象增加一个原型方法，
+            2.它用于删除数组条目中重复的条目(可能有多个)
+            3.返回值是一个包含被删除的重复条目的新数组
+        */
+
+        Array.prototype.distinct = function(){
+            var ret = [];
+            for(var i=0;i<this.length;i++){
+                this[i]
+                for(var j=0;j<this.length;j++){
+                    if(this[i] == this[j]){
+                        ret.push(this.splice(j,1)[0]);
+                    }else{
+                        j++;
+                    }
+                }
+            }
+            return ret;
+        }
+
+        var x = ['a','b','c','d','b','a','e','c','c'];
+        var y = x.distinct();
+
+    </script>
+</body>
+</html>

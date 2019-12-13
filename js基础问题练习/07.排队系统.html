@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排队系统</title>
+</head>
+<body>
+    <script>
+        // 银行柜台排序系统
+        var getPerson = (function(){
+            var vipNum = 1;
+            var norNum = 1;
+            return function(){
+                if(Math.random() > 0.5){
+                    return "V"+ vipNum++;
+                }else{
+                    return "N"+ norNum++;
+                }
+            }
+        })();
+
+        function addList(person){
+            if(person[0] == 'V'){
+                for(var i=0;i<ary.length;i++){
+                    if(ary[i][0] == "N"){
+                        //把vip用户插到普通用户前面
+                        ary.splice(i,0,person);
+                        return;
+                    }
+                }
+            }
+            ary.push(person);
+        }
+
+        var ary = [];
+        for(var i=0;i<6;i++){
+            addList(getPerson());
+        }
+        console.log('排号顺序1：' + ary.toString());
+
+        setInterval(getOne,3000);
+        function getOne(){
+            //柜台，叫一个人
+            var firstPerson = ary.shift();
+            console.log("叫号"+ firstPerson);
+            // 新人到了
+            var newPerson = getPerson();
+            console.log("新人"+ newPerson);
+            // 加到队列里面去
+            addList(newPerson);
+            console.log('排号顺序2：' + ary.toString());
+        }
+    </script>
+</body>
+</html>
